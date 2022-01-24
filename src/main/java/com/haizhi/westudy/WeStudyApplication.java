@@ -1,13 +1,12 @@
-package weStudy_project;
+package com.haizhi.westudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WeStudyProjectApplication {
-
+public class WeStudyApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WeStudyProjectApplication.class, args);
+        SpringApplication.run(WeStudyApplication.class, args);
     }
 
 }

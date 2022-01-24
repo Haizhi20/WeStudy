@@ -1,10 +1,11 @@
-package config;
+package com.haizhi.westudy.config;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -22,17 +23,17 @@ public class SwaggerConfig {
     @Bean
     public Docket webApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("weStudyApi")
+                .groupName("WeStudy")
                 .apiInfo(webApiInfo())
                 .select()
-                .paths(Predicates.not(PathSelectors.regex("/admin/.*")))
-                .paths(Predicates.not(PathSelectors.regex("/error.*")))
+                .apis(RequestHandlerSelectors.basePackage("com.haizhi.westudy.controller"))
+                .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo webApiInfo(){
         return new ApiInfoBuilder()
-                .title("weStudyApi文档")
+                .title("WeStudyApi文档")
                 .description("描述接口定义")
                 .version("1.0")
                 .contact(new Contact("翁灿源", "http://westudy.com", "907359350@qq.com"))
