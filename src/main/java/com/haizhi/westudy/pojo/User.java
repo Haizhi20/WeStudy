@@ -25,6 +25,8 @@ public class User {
     @ApiModelProperty(value = "登陆密码")
     private String password;
 
+    private String userimage;
+
     @ApiModelProperty(value = "邮箱")
     private String eMail;
 
@@ -37,16 +39,16 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String nickname, String username, String password, String eMail, String phoneNumber, Integer is_deletr) {
+    public User(Integer id, String nickname, String username, String password, String userimage, String eMail, String phoneNumber, Integer is_deletr) {
         this.id = id;
         this.nickname = nickname;
         this.username = username;
         this.password = password;
+        this.userimage = userimage;
         this.eMail = eMail;
         this.phoneNumber = phoneNumber;
         this.is_deletr = is_deletr;
     }
-
 
     public Integer getId() {
         return id;
@@ -80,6 +82,14 @@ public class User {
         this.password = password;
     }
 
+    public String getUserimage() {
+        return userimage;
+    }
+
+    public void setUserimage(String userimage) {
+        this.userimage = userimage;
+    }
+
     public String geteMail() {
         return eMail;
     }
@@ -111,6 +121,7 @@ public class User {
                 ", nickname='" + nickname + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", userimage='" + userimage + '\'' +
                 ", eMail='" + eMail + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", is_deletr=" + is_deletr +
